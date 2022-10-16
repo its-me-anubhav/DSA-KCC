@@ -1,30 +1,24 @@
-#include <iostream>
-#include<vector>
+#include <bits/stdc++.h>
 
 using namespace std;
-
-     vector<int> breakingRecords(vector<int> scores) 
-{
-    int max = scores[0]; 
-    int min = scores[0]; 
-    int count_max = 0;   
-    int count_min = 0; 
-    vector <int> re ; 
-    int len  = scores.size(); 
-    for (int i=0; i<len; i++)
-    {
-        if(max<scores[i]) 
-        {
-            max = scores[i];
-            count_max++; 
-        }
-        if(min>scores[i])
-        {
-            min = scores[i];
-            count_min++;
-        }
+int main(){
+    string s;
+    cin >> s;
+    string t;
+    cin >> t;
+    int k;
+    cin >> k;
+    int cl=0;
+    while(cl<s.size() && cl<t.size()){
+        if(s[cl]!=t[cl]) break;
+        cl++;
     }
-    re.push_back(count_max);
-    re.push_back(count_min);
-    return re;
+    if(s.size()-cl+t.size()-cl<=k&& (s.size()-cl+t.size()-cl)%2==k%2){
+        cout<<"Yes"<<endl;
     }
+    else if(s.size()+t.size()<=k){
+        cout<<"Yes"<<endl;
+    }
+    else cout<<"No"<<endl;
+    return 0;
+}
